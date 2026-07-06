@@ -18,19 +18,21 @@
   .page-icon{ width:84px; height:84px; object-fit:contain; margin:0 auto 1rem; }
 
   .playground{
-    position:relative; width:100%; height:66vh; min-height:460px; border-radius:28px;
+    position:relative; width:100%; min-height:460px; border-radius:28px;
     background:linear-gradient(180deg,#2E2440,#241C30);
     border:2.5px solid var(--plum-line); overflow:hidden; cursor:none;
   }
   .pg-node{
-    position:absolute; width:130px; padding:0.9rem 1rem; border-radius:20px;
-    background:var(--cream); color:var(--ink); text-decoration:none;
-    font-family:'Baloo 2',cursive; font-weight:700; font-size:0.85rem; text-align:center;
+    position:absolute; width:148px; height:64px; padding:0.5rem 0.85rem;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    border-radius:18px; background:var(--cream); color:var(--ink); text-decoration:none;
+    font-family:'Baloo 2',cursive; font-weight:700; font-size:0.8rem; line-height:1.2;
     border:2.5px solid var(--ink); box-shadow:4px 4px 0 rgba(0,0,0,0.35);
     animation:bob 4.5s ease-in-out infinite; transition:transform .2s;
+    overflow:hidden; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical;
   }
   .pg-node:hover{ transform:scale(1.08); z-index:5; }
-  @keyframes bob{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-10px);} }
+  @keyframes bob{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-8px);} }
 
   #pg-companion{ position:absolute; width:110px; height:129px; pointer-events:none; z-index:10;
     transition:left .35s cubic-bezier(.22,1,.36,1), top .35s cubic-bezier(.22,1,.36,1); }
@@ -39,8 +41,7 @@
   .pg-hint{ text-align:center; font-family:'Space Mono',monospace; font-size:0.78rem; color:#9A8CAE; margin-top:1rem; }
 
   @media (max-width:768px){
-    .playground{ height:56vh; min-height:380px; }
-    .pg-node{ width:104px; font-size:0.75rem; padding:0.65rem 0.7rem; }
+    .pg-node{ width:118px; height:56px; font-size:0.72rem; padding:0.4rem 0.6rem; }
   }
 </style>
 </head>
@@ -133,26 +134,44 @@ const companion = document.getElementById('pg-companion');
 const byte = mountCompanion(companion, { idleMs: 999999 }); // no auto-sleepy in the playground
 const nodes = [];
 
+const CARD_W = window.innerWidth <= 768 ? 118 : 148;
+const CARD_H = window.innerWidth <= 768 ? 56 : 64;
+const GAP_X = 26;
+const GAP_Y = 46; // extra vertical room so the bob animation never causes overlap
+const MARGIN = 40;
+
 function layoutNodes(){
-  const w = pg.clientWidth, h = pg.clientHeight;
+  const w = pg.clientWidth || 900;
   nodes.length = 0;
   pg.querySelectorAll('.pg-node').forEach(n=>n.remove());
+
+  const cols = Math.max(1, Math.floor((w - MARGIN*2 + GAP_X) / (CARD_W + GAP_X)));
+  const rows = Math.ceil(PROJECTS.length / cols);
+  const rowWidth = cols*(CARD_W+GAP_X) - GAP_X;
+  const startX = MARGIN + Math.max(0, (w - MARGIN*2 - rowWidth) / 2);
+
   PROJECTS.forEach((p, i)=>{
+    const col = i % cols, row = Math.floor(i / cols);
+    const jitterX = (Math.random()-0.5) * (GAP_X*0.7);
+    const jitterY = (Math.random()-0.5) * (GAP_Y*0.5);
+    const x = startX + col*(CARD_W+GAP_X) + jitterX;
+    const y = MARGIN + row*(CARD_H+GAP_Y) + jitterY;
+
     const el = document.createElement('a');
     el.className = 'pg-node';
     el.href = p.url; el.target = '_blank';
     el.textContent = p.name;
-    el.style.animationDelay = (i*0.3)+'s';
-    const margin = 90;
-    const x = margin + Math.random()*(w - margin*2 - 130);
-    const y = margin + Math.random()*(h - margin*2 - 60);
+    el.style.animationDelay = (i*0.2)+'s';
     el.style.left = x+'px'; el.style.top = y+'px';
     pg.insertBefore(el, companion);
-    nodes.push({el, x:x+65, y:y+30, data:p});
+    nodes.push({el, x:x+CARD_W/2, y:y+CARD_H/2, data:p});
   });
+
+  const totalHeight = MARGIN*2 + rows*(CARD_H+GAP_Y) - GAP_Y;
+  pg.style.height = Math.max(460, totalHeight) + 'px';
 }
 
-let mx = pg.clientWidth/2, my = pg.clientHeight/2;
+let mx = pg.clientWidth/2, my = 200;
 let cx = mx, cy = my;
 let nearest = null;
 
@@ -173,7 +192,7 @@ function tick(){
     if(d < bestDist){ bestDist=d; best=n; }
   });
 
-  if(best && bestDist < 110){
+  if(best && bestDist < 100){
     if(nearest !== best){
       nearest = best;
       byte.setState('peek');
