@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kasvi Rajwar — See It All</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  body[data-page="seeall"]{ background:var(--plum-dark); color:var(--cream); }
+  body[data-page="seeall"] h2.section-title{ color:var(--cream); }
+  body[data-page="seeall"] .section-sub{ color:#C7BBD4; }
+  body[data-page="seeall"] .eyebrow{ color:var(--butter); }
+  body[data-page="seeall"] footer{ background:#1A1422; }
+
+  .page-hero{ text-align:center; padding-bottom:1.5rem; }
+  .page-icon{ width:84px; height:84px; object-fit:contain; margin:0 auto 1rem; }
+
+  .playground{
+    position:relative; width:100%; height:66vh; min-height:460px; border-radius:28px;
+    background:linear-gradient(180deg,#2E2440,#241C30);
+    border:2.5px solid var(--plum-line); overflow:hidden; cursor:none;
+  }
+  .pg-node{
+    position:absolute; width:130px; padding:0.9rem 1rem; border-radius:20px;
+    background:var(--cream); color:var(--ink); text-decoration:none;
+    font-family:'Baloo 2',cursive; font-weight:700; font-size:0.85rem; text-align:center;
+    border:2.5px solid var(--ink); box-shadow:4px 4px 0 rgba(0,0,0,0.35);
+    animation:bob 4.5s ease-in-out infinite; transition:transform .2s;
+  }
+  .pg-node:hover{ transform:scale(1.08); z-index:5; }
+  @keyframes bob{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-10px);} }
+
+  #pg-companion{ position:absolute; width:110px; height:129px; pointer-events:none; z-index:10;
+    transition:left .35s cubic-bezier(.22,1,.36,1), top .35s cubic-bezier(.22,1,.36,1); }
+  #pg-companion .speech-bubble{ background:var(--butter); top:auto; bottom:110%; }
+
+  .pg-hint{ text-align:center; font-family:'Space Mono',monospace; font-size:0.78rem; color:#9A8CAE; margin-top:1rem; }
+
+  @media (max-width:768px){
+    .playground{ height:56vh; min-height:380px; }
+    .pg-node{ width:104px; font-size:0.75rem; padding:0.65rem 0.7rem; }
+  }
+</style>
+</head>
+<body data-page="seeall">
+
+<nav>
+  <a href="index.html"><img class="logo" src="assets/logo.png" alt="Kasvi"></a>
+  <ul class="nav-links">
+    <li><a href="hire.html">Hire Me</a></li>
+    <li><a href="play.html">Wanna Play</a></li>
+    <li><a href="seeall.html" class="current">See It All</a></li>
+    <li><a href="study.html">Study Log</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section class="page-hero">
+    <img class="page-icon" src="assets/icons/butterfly.png" alt="">
+    <div class="eyebrow" style="text-align:center">Exhibit C</div>
+    <h2 class="section-title">See it all?</h2>
+    <p class="section-sub" style="margin-left:auto;margin-right:auto;text-align:center">Move your cursor around. Byte will wander over to whatever's nearby and tell you what it is.</p>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="playground" id="playground">
+      <div id="pg-companion" class="companion-wrap">
+        <div class="speech-bubble">wandering...</div>
+        <img class="companion-base" src="assets/character/original.png" alt="">
+        <img class="companion-eyes" src="assets/character/eyes.png" alt="">
+        <img class="companion-expr" src="" alt="">
+      </div>
+    </div>
+    <p class="pg-hint">hover near a card — Byte will introduce it</p>
+  </section>
+</main>
+
+<footer>
+  <div class="contact-links">
+    <a class="contact-link" href="mailto:kasvi.r04@gmail.com">✉ Email</a>
+    <a class="contact-link" href="https://linkedin.com/in/kasvi-rajwar-85747228a" target="_blank">LinkedIn</a>
+    <a class="contact-link" href="https://github.com/kasviii" target="_blank">GitHub</a>
+  </div>
+  <div class="fine-print">© 2026 Kasvi Rajwar</div>
+</footer>
+
+<script src="companion.js"></script>
+<script>
+const PROJECTS = [
+  { name:"Fraud Detection", line:"catches fraud before it happens", url:"https://github.com/kasviii/fraud-detection" },
+  { name:"Ivy", line:"reads papers so you don't have to", url:"https://github.com/kasviii/Ivy" },
+  { name:"Colon Cancer XAI", line:"AI that explains its diagnosis", url:"https://github.com/kasviii/colon-cancer-XAI" },
+  { name:"Mental Health Predictor", line:"predicts, then explains why", url:"https://github.com/kasviii/mental-health-predictor" },
+  { name:"Voice Assistant", line:"talks back, actually helpfully", url:"https://kasviii.github.io/Voice-assistant/" },
+  { name:"Say It", line:"turns rambling into to-dos", url:"https://kasviii.github.io/say-it/" },
+  { name:"Resume Optimizer", line:"roasts your resume, then fixes it", url:"https://github.com/kasviii/resume-optimizer" },
+  { name:"Tab Memory", line:"remembers why you opened that tab", url:"https://github.com/kasviii/Tab-memory" },
+  { name:"Aura", line:"guesses your personality in 20 Qs", url:"https://kasviii.github.io/persona/" },
+  { name:"The Weekly Plate", line:"plans your whole week of meals", url:"https://github.com/kasviii/meal-prep" },
+  { name:"Gesture Chords", line:"play music with hand signs", url:"https://gesture-controlled-chords.netlify.app/" },
+  { name:"DeepFake Detector", line:"try to fool it, I dare you", url:"https://deepfake-detector-kasviii.streamlit.app" },
+];
+
+const pg = document.getElementById('playground');
+const companion = document.getElementById('pg-companion');
+const byte = mountCompanion(companion, { idleMs: 999999 }); // no auto-sleepy in the playground
+const nodes = [];
+
+function layoutNodes(){
+  const w = pg.clientWidth, h = pg.clientHeight;
+  nodes.length = 0;
+  pg.querySelectorAll('.pg-node').forEach(n=>n.remove());
+  PROJECTS.forEach((p, i)=>{
+    const el = document.createElement('a');
+    el.className = 'pg-node';
+    el.href = p.url; el.target = '_blank';
+    el.textContent = p.name;
+    el.style.animationDelay = (i*0.3)+'s';
+    const margin = 90;
+    const x = margin + Math.random()*(w - margin*2 - 130);
+    const y = margin + Math.random()*(h - margin*2 - 60);
+    el.style.left = x+'px'; el.style.top = y+'px';
+    pg.insertBefore(el, companion);
+    nodes.push({el, x:x+65, y:y+30, data:p});
+  });
+}
+
+let mx = pg.clientWidth/2, my = pg.clientHeight/2;
+let cx = mx, cy = my;
+let nearest = null;
+
+pg.addEventListener('mousemove', (e)=>{
+  const rect = pg.getBoundingClientRect();
+  mx = e.clientX - rect.left; my = e.clientY - rect.top;
+});
+
+function tick(){
+  cx += (mx - 55 - cx) * 0.08;
+  cy += (my - 64 - cy) * 0.08;
+  companion.style.left = cx+'px';
+  companion.style.top = cy+'px';
+
+  let best=null, bestDist=Infinity;
+  nodes.forEach(n=>{
+    const d = Math.hypot((cx+55)-n.x, (cy+64)-n.y);
+    if(d < bestDist){ bestDist=d; best=n; }
+  });
+
+  if(best && bestDist < 110){
+    if(nearest !== best){
+      nearest = best;
+      byte.setState('peek');
+      byte.say(`${best.data.name} — ${best.data.line}`, 4000);
+    }
+  } else if(nearest){
+    nearest = null;
+    byte.setState('default');
+  }
+  requestAnimationFrame(tick);
+}
+
+layoutNodes();
+window.addEventListener('resize', layoutNodes);
+requestAnimationFrame(tick);
+</script>
+</body>
+</html>

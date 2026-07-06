@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kasvi Rajwar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  #hub-hero{
+    min-height:calc(100vh - 5.2rem);
+    display:flex; align-items:center; justify-content:center;
+    text-align:center; padding-top:2rem;
+  }
+  .hub-inner{ max-width:900px; }
+  .hub-slogan{ max-width:480px; width:85%; margin:0 auto 1.5rem; }
+  .hub-sub{ font-size:1.1rem; color:var(--ink-soft); font-weight:600; max-width:520px; margin:0 auto; }
+
+  .byte-wrap{ position:relative; width:190px; height:222px; margin:2rem auto 0; cursor:pointer; }
+
+  .doors{ margin-top:3rem; display:flex; gap:1.75rem; flex-wrap:wrap; justify-content:center; }
+  .door{
+    width:230px; padding:2rem 1.5rem 1.75rem; border-radius:28px; text-decoration:none;
+    display:flex; flex-direction:column; align-items:center; gap:0.75rem;
+    border:2.5px solid var(--ink); background:var(--card);
+    box-shadow:6px 6px 0 var(--ink); transition:transform .15s, box-shadow .15s;
+  }
+  .door:hover{ transform:translate(-3px,-3px); box-shadow:9px 9px 0 var(--ink); }
+  .door:active{ transform:translate(0,0); box-shadow:3px 3px 0 var(--ink); }
+  .door-icon{ width:76px; height:76px; object-fit:contain; }
+  .door .display{ font-size:1.15rem; }
+  .door p{ font-size:0.83rem; color:var(--ink-soft); text-align:center; font-weight:600; }
+  .door.hire{ background:var(--lilac-pale); }
+  .door.play{ background:var(--butter-pale); }
+  .door.seeall{ background:var(--coral-pale); }
+</style>
+</head>
+<body data-page="hub">
+
+<nav>
+  <a href="index.html"><img class="logo" src="assets/logo.png" alt="Kasvi"></a>
+  <ul class="nav-links">
+    <li><a href="hire.html">Hire Me</a></li>
+    <li><a href="play.html">Wanna Play</a></li>
+    <li><a href="seeall.html">See It All</a></li>
+    <li><a href="study.html">Study Log</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section id="hub-hero">
+    <div class="hub-inner">
+      <img class="hub-slogan" src="assets/ui/slogan.png" alt="Welcome, ready to dive in?">
+      <p class="hub-sub">I make things — some for recruiters, some for fun, some for no reason at all. Pick a door and I'll show you around.</p>
+
+      <div class="byte-wrap companion-wrap" id="byteHome">
+        <div class="speech-bubble">hi, I'm Byte!</div>
+        <img class="companion-base" src="assets/character/original.png" alt="">
+        <img class="companion-eyes" src="assets/character/eyes.png" alt="">
+        <img class="companion-expr" src="" alt="">
+      </div>
+
+      <div class="doors">
+        <a class="door hire" href="hire.html">
+          <img class="door-icon" src="assets/icons/briefcase.png" alt="">
+          <div class="display">Hire me?</div>
+          <p>The professional, technical, "please give me a job" stuff.</p>
+        </a>
+        <a class="door play" href="play.html">
+          <img class="door-icon" src="assets/icons/balloon.png" alt="">
+          <div class="display">Wanna play?</div>
+          <p>Fun, weird, and mostly just built for the joy of it.</p>
+        </a>
+        <a class="door seeall" href="seeall.html">
+          <img class="door-icon" src="assets/icons/butterfly.png" alt="">
+          <div class="display">See it all?</div>
+          <p>Everything, wandered through with a little company.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="contact-links">
+    <a class="contact-link" href="mailto:kasvi.r04@gmail.com">✉ Email</a>
+    <a class="contact-link" href="https://linkedin.com/in/kasvi-rajwar-85747228a" target="_blank">LinkedIn</a>
+    <a class="contact-link" href="https://github.com/kasviii" target="_blank">GitHub</a>
+    <a class="contact-link" href="study.html">Study Log</a>
+  </div>
+  <div class="fine-print">© 2026 Kasvi Rajwar</div>
+</footer>
+
+<script src="companion.js"></script>
+<script>
+  const byte = mountCompanion(document.getElementById('byteHome'));
+  const lines = ["hi, I'm Byte!", "pick a door above ↑", "go on, click one"];
+  let i = 0;
+  document.getElementById('byteHome').addEventListener('click', () => {
+    byte.setState('surprised');
+    i = (i+1) % lines.length;
+    byte.say(lines[i], 1400);
+    setTimeout(() => byte.setState('default'), 1400);
+  });
+  setTimeout(() => byte.say("hi, I'm Byte!", 2600), 500);
+</script>
+</body>
+</html>

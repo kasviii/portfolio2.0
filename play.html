@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kasvi Rajwar — Wanna Play?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  body[data-page="play"]{ background:var(--butter-pale); }
+  body[data-page="play"] .eyebrow{ color:#C98A1A; }
+  .page-hero{ text-align:center; padding-bottom:2rem; }
+  .page-icon{ width:84px; height:84px; object-fit:contain; margin:0 auto 1rem; }
+  .byte-corner{ position:fixed; bottom:24px; right:24px; width:110px; height:129px; z-index:50; cursor:pointer; }
+  @media (max-width:768px){ .byte-corner{ width:80px; height:94px; bottom:14px; right:14px; } }
+</style>
+</head>
+<body data-page="play">
+
+<nav>
+  <a href="index.html"><img class="logo" src="assets/logo.png" alt="Kasvi"></a>
+  <ul class="nav-links">
+    <li><a href="hire.html">Hire Me</a></li>
+    <li><a href="play.html" class="current">Wanna Play</a></li>
+    <li><a href="seeall.html">See It All</a></li>
+    <li><a href="study.html">Study Log</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section class="page-hero">
+    <img class="page-icon" src="assets/icons/balloon.png" alt="">
+    <div class="eyebrow" style="text-align:center">Exhibit B</div>
+    <h2 class="section-title">Wanna play?</h2>
+    <p class="section-sub" style="margin-left:auto;margin-right:auto;text-align:center">Built because they sounded fun, not because a job posting asked for them.</p>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="project-grid">
+
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-name">Aura — Big Five Predictor</div>
+          <div class="project-badge">also kinda serious</div>
+        </div>
+        <p class="project-desc">A 20-question quiz that predicts your Big Five personality scores from a real regression model, plots you on an animated radar chart, and shows where you land against 32,000+ real respondents.</p>
+        <div class="project-tags"><span class="tag">Ridge Regression</span><span class="tag">PCA</span><span class="tag">scikit-learn</span></div>
+        <div class="project-links">
+          <a href="https://kasviii.github.io/persona/" target="_blank">Live Demo →</a>
+          <a href="https://github.com/kasviii/persona" target="_blank">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-name">The Weekly Plate</div>
+          <div class="project-badge">Meal Prep</div>
+        </div>
+        <p class="project-desc">Turns your diet, goals, and week into a 7-day meal plan, a grouped grocery list, and a batch-cooking timeline — one HTML file, your own free API key.</p>
+        <div class="project-tags"><span class="tag">Gemini</span><span class="tag">Groq</span><span class="tag">No backend</span></div>
+        <div class="project-links"><a href="https://github.com/kasviii/meal-prep" target="_blank">GitHub →</a></div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-name">Gesture-Controlled Chord Player</div>
+          <div class="project-badge">Computer Vision</div>
+        </div>
+        <p class="project-desc">Make a hand sign at your webcam, hear a chord play instantly. Glowing hand-skeleton visualiser, live waveform, mixed recording.</p>
+        <div class="project-tags"><span class="tag">MediaPipe</span><span class="tag">Tone.js</span></div>
+        <div class="project-links">
+          <a href="https://gesture-controlled-chords.netlify.app/" target="_blank">Live Demo →</a>
+          <a href="https://github.com/kasviii/gesture-chords-web" target="_blank">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-name">DeepFake Detector</div>
+          <div class="project-badge">Image Classifier</div>
+        </div>
+        <p class="project-desc">A MobileNetV2 model trained on 140,000+ images to guess whether a face is real or AI-generated. Try to fool it.</p>
+        <div class="project-tags"><span class="tag">MobileNetV2</span><span class="tag">Streamlit</span></div>
+        <div class="project-links">
+          <a href="https://deepfake-detector-kasviii.streamlit.app" target="_blank">Live Demo →</a>
+          <a href="https://github.com/kasviii/deepfake-detector" target="_blank">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="more-soon">+ more landing here as I add them — check back soon</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="contact-links">
+    <a class="contact-link" href="mailto:kasvi.r04@gmail.com">✉ Email</a>
+    <a class="contact-link" href="https://linkedin.com/in/kasvi-rajwar-85747228a" target="_blank">LinkedIn</a>
+    <a class="contact-link" href="https://github.com/kasviii" target="_blank">GitHub</a>
+  </div>
+  <div class="fine-print">© 2026 Kasvi Rajwar</div>
+</footer>
+
+<div class="byte-corner companion-wrap" id="bytePlay">
+  <div class="speech-bubble">ooh, try this one!</div>
+  <img class="companion-base" src="assets/character/original.png" alt="">
+  <img class="companion-eyes" src="assets/character/eyes.png" alt="">
+  <img class="companion-expr" src="" alt="">
+</div>
+
+<script src="companion.js"></script>
+<script>
+  const byte = mountCompanion(document.getElementById('bytePlay'));
+  document.getElementById('bytePlay').addEventListener('click', () => {
+    byte.setState('surprised'); byte.say("wheee — click around!", 1500);
+    setTimeout(() => byte.setState('default'), 1500);
+  });
+</script>
+</body>
+</html>

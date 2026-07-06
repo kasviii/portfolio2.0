@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kasvi Rajwar — Study Log</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .page-hero{ text-align:center; padding-bottom:1rem; }
+  .page-icon{ width:150px; margin:0 auto 1.5rem; }
+  .study-card{
+    max-width:520px; margin:0 auto; padding:3rem 2rem; border:2.5px dashed var(--lilac);
+    border-radius:28px; background:var(--lilac-pale); text-align:center;
+  }
+  .study-card .display{ font-size:1.4rem; margin-bottom:0.75rem; }
+  .study-card p{ color:var(--ink-soft); font-weight:600; }
+  .byte-corner{ position:fixed; bottom:24px; right:24px; width:110px; height:129px; z-index:50; cursor:pointer; }
+  @media (max-width:768px){ .byte-corner{ width:80px; height:94px; bottom:14px; right:14px; } }
+</style>
+</head>
+<body data-page="study">
+
+<nav>
+  <a href="index.html"><img class="logo" src="assets/logo.png" alt="Kasvi"></a>
+  <ul class="nav-links">
+    <li><a href="hire.html">Hire Me</a></li>
+    <li><a href="play.html">Wanna Play</a></li>
+    <li><a href="seeall.html">See It All</a></li>
+    <li><a href="study.html" class="current">Study Log</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section class="page-hero">
+    <img class="page-icon" src="assets/icons/desk.png" alt="">
+    <div class="eyebrow" style="text-align:center">Exhibit D</div>
+    <h2 class="section-title">Study Log</h2>
+  </section>
+  <section style="padding-top:0">
+    <div class="study-card">
+      <div class="display">still cooking 🍳</div>
+      <p>I'm just getting properly serious about studying this in a structured way — nothing to show yet, but this is where it'll land as it happens. Come back soon.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="contact-links">
+    <a class="contact-link" href="mailto:kasvi.r04@gmail.com">✉ Email</a>
+    <a class="contact-link" href="https://linkedin.com/in/kasvi-rajwar-85747228a" target="_blank">LinkedIn</a>
+    <a class="contact-link" href="https://github.com/kasviii" target="_blank">GitHub</a>
+  </div>
+  <div class="fine-print">© 2026 Kasvi Rajwar</div>
+</footer>
+
+<div class="byte-corner companion-wrap" id="byteStudy">
+  <div class="speech-bubble">zzz... wake me when there's content</div>
+  <img class="companion-base" src="assets/character/original.png" alt="">
+  <img class="companion-eyes" src="assets/character/eyes.png" alt="">
+  <img class="companion-expr" src="" alt="">
+</div>
+
+<script src="companion.js"></script>
+<script>
+  const byte = mountCompanion(document.getElementById('byteStudy'), { idleMs: 2500 });
+</script>
+</body>
+</html>

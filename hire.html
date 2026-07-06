@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kasvi Rajwar — Hire Me</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .page-hero{ text-align:center; padding-bottom:2rem; }
+  .page-icon{ width:84px; height:84px; object-fit:contain; margin:0 auto 1rem; }
+  .byte-corner{ position:fixed; bottom:24px; right:24px; width:110px; height:129px; z-index:50; cursor:pointer; }
+  @media (max-width:768px){ .byte-corner{ width:80px; height:94px; bottom:14px; right:14px; } }
+</style>
+</head>
+<body data-page="hire">
+
+<nav>
+  <a href="index.html"><img class="logo" src="assets/logo.png" alt="Kasvi"></a>
+  <ul class="nav-links">
+    <li><a href="hire.html" class="current">Hire Me</a></li>
+    <li><a href="play.html">Wanna Play</a></li>
+    <li><a href="seeall.html">See It All</a></li>
+    <li><a href="study.html">Study Log</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section class="page-hero">
+    <img class="page-icon" src="assets/icons/briefcase.png" alt="">
+    <div class="eyebrow" style="text-align:center">Exhibit A</div>
+    <h2 class="section-title">Hire me?</h2>
+    <p class="section-sub" style="margin-left:auto;margin-right:auto;text-align:center">The stuff I'd point a recruiter to — real pipelines, real deployments, real "it actually works" energy.</p>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="project-grid">
+
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-name">Real-Time Fraud Detection System</div>
+          <div class="project-badge">MLOps</div>
+        </div>
+        <p class="project-desc">An end-to-end fraud detection pipeline using XGBoost and autoencoder-based anomaly detection on imbalanced transaction data, with drift monitoring and live dashboards.</p>
+        <div class="project-tags"><span class="tag">XGBoost</span><span class="tag">Evidently AI</span><span class="tag">Grafana</span><span class="tag">REST API</span></div>
+        <div class="project-links"><a href="https://github.com/kasviii/fraud-detection" target="_blank">GitHub →</a></div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-name">Ivy — Autonomous Research Agent</div>
+          <div class="project-badge">Agentic AI</div>
+        </div>
+        <p class="project-desc">An agent that searches Arxiv and Semantic Scholar, reflects on its own output, and writes structured literature reviews — with memory and tool-calling via LangGraph.</p>
+        <div class="project-tags"><span class="tag">LangGraph</span><span class="tag">FastAPI</span><span class="tag">React</span></div>
+        <div class="project-links"><a href="https://github.com/kasviii/Ivy" target="_blank">GitHub →</a></div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-name">Explainable AI for Colon Cancer Detection</div>
+          <div class="project-badge">AiCCONs 2026</div>
+        </div>
+        <p class="project-desc">A deep learning framework for colon cancer detection from histopathology and endoscopy images, with Grad-CAM and SHAP layered in for interpretability. Presented at AiCCONs 2026.</p>
+        <div class="project-tags"><span class="tag">ResNet50</span><span class="tag">Grad-CAM</span><span class="tag">SHAP</span></div>
+        <div class="project-links"><a href="https://github.com/kasviii/colon-cancer-XAI" target="_blank">GitHub →</a></div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-name">Mental Health Treatment Predictor</div>
+          <div class="project-badge">XAI</div>
+        </div>
+        <p class="project-desc">Compared five ML models on 292,000+ records to predict treatment likelihood, with SHAP explainability surfacing why each prediction was made.</p>
+        <div class="project-tags"><span class="tag">Gradient Boosting</span><span class="tag">SHAP</span><span class="tag">Streamlit</span></div>
+        <div class="project-links">
+          <a href="https://mental-health-predictor-kasviii.streamlit.app" target="_blank">Live Demo →</a>
+          <a href="https://github.com/kasviii/mental-health-predictor" target="_blank">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-name">Voice Assistant</div>
+          <div class="project-badge">Full Pipeline</div>
+        </div>
+        <p class="project-desc">A browser voice assistant with a full speech-to-response-to-speech loop — Whisper for transcription, Llama 3.3 for the reply, ElevenLabs for the voice. No backend.</p>
+        <div class="project-tags"><span class="tag">Whisper</span><span class="tag">Llama 3.3</span><span class="tag">ElevenLabs</span></div>
+        <div class="project-links">
+          <a href="https://kasviii.github.io/Voice-assistant/" target="_blank">Live Demo →</a>
+          <a href="https://github.com/kasviii/Voice-assistant" target="_blank">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-name">Say It</div>
+          <div class="project-badge">Voice → Action</div>
+        </div>
+        <p class="project-desc">Record a voice memo, and it gets transcribed and split into tasks, calendar events, and notes — yours to confirm or toss.</p>
+        <div class="project-tags"><span class="tag">Whisper</span><span class="tag">Llama 3.3</span></div>
+        <div class="project-links">
+          <a href="https://kasviii.github.io/say-it/" target="_blank">Live Demo →</a>
+          <a href="https://github.com/kasviii/say-it" target="_blank">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-name">Resume Optimizer</div>
+          <div class="project-badge">CI/CD</div>
+        </div>
+        <p class="project-desc">Scores a resume against a job description, finds missing keywords, and rewrites bullet points using the STAR method — deployed with API keys injected at build time via GitHub Actions.</p>
+        <div class="project-tags"><span class="tag">Llama 3.3</span><span class="tag">GitHub Actions</span></div>
+        <div class="project-links"><a href="https://github.com/kasviii/resume-optimizer" target="_blank">GitHub →</a></div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-name">Tab Memory</div>
+          <div class="project-badge">Chrome Ext.</div>
+        </div>
+        <p class="project-desc">A Chrome extension that asks "why did you open this tab?" — then lets you search and clean up those notes later, all stored locally.</p>
+        <div class="project-tags"><span class="tag">Manifest V3</span><span class="tag">Vanilla JS</span></div>
+        <div class="project-links"><a href="https://github.com/kasviii/Tab-memory" target="_blank">GitHub →</a></div>
+      </div>
+
+      <div class="more-soon">+ more landing here as I add them — check back soon</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="contact-links">
+    <a class="contact-link" href="mailto:kasvi.r04@gmail.com">✉ Email</a>
+    <a class="contact-link" href="https://linkedin.com/in/kasvi-rajwar-85747228a" target="_blank">LinkedIn</a>
+    <a class="contact-link" href="https://github.com/kasviii" target="_blank">GitHub</a>
+  </div>
+  <div class="fine-print">© 2026 Kasvi Rajwar</div>
+</footer>
+
+<div class="byte-corner companion-wrap" id="byteHire">
+  <div class="speech-bubble">psst — nice work, right?</div>
+  <img class="companion-base" src="assets/character/original.png" alt="">
+  <img class="companion-eyes" src="assets/character/eyes.png" alt="">
+  <img class="companion-expr" src="" alt="">
+</div>
+
+<script src="companion.js"></script>
+<script>
+  const byte = mountCompanion(document.getElementById('byteHire'));
+  document.getElementById('byteHire').addEventListener('click', () => {
+    byte.setState('surprised'); byte.say("go on, click a project!", 1500);
+    setTimeout(() => byte.setState('default'), 1500);
+  });
+</script>
+</body>
+</html>
