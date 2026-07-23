@@ -29,11 +29,13 @@
   .door:hover{ transform:translate(-3px,-3px); box-shadow:9px 9px 0 var(--ink); }
   .door:active{ transform:translate(0,0); box-shadow:3px 3px 0 var(--ink); }
   .door-icon{ width:76px; height:76px; object-fit:contain; }
+  .door-emoji{ font-size:3.4rem; line-height:1; }
   .door .display{ font-size:1.15rem; }
   .door p{ font-size:0.83rem; color:var(--ink-soft); text-align:center; font-weight:600; }
   .door.hire{ background:var(--lilac-pale); }
   .door.play{ background:var(--butter-pale); }
   .door.seeall{ background:var(--coral-pale); }
+  .door.resume{ background:#DCEEE6; }
 </style>
 </head>
 <body data-page="hub">
@@ -76,6 +78,11 @@
           <img class="door-icon" src="assets/icons/butterfly.png" alt="">
           <div class="display">See it all?</div>
           <p>Everything, wandered through with a little company.</p>
+        </a>
+        <a class="door resume" href="https://drive.google.com/file/d/1fXBjaz3nBYh1U8sSsbgrdORwdakfQrdr/view?usp=sharing" target="_blank" rel="noopener">
+          <span class="door-icon door-emoji">📄</span>
+          <div class="display">Got a résumé?</div>
+          <p>The one-pager, straight from the source.</p>
         </a>
       </div>
     </div>
